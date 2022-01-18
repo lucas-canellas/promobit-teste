@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import Tag from './Tag'
+import { useState } from "react"
 
-function Hero({ genres }) {
+function Hero({ genres, genresSearch, setGenresSearch }) {
+
 
   return (
     <Wrapper>
@@ -11,7 +13,7 @@ function Hero({ genres }) {
         </ContainerText>
         <Label>FILTRE POR: </Label>
         <BoxTag>
-          {genres.map(tag => <Tag key={tag.id} name={tag.name} />)}
+          {genres.map(tag => <Tag key={tag.id} tag={tag} genresSearch={genresSearch} setGenresSearch={setGenresSearch} />)}
         </BoxTag>
       </Content>
 

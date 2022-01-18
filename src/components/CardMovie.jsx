@@ -1,16 +1,26 @@
 import styled from 'styled-components'
 import Image from 'next/image'
+import blur from './../../public/images/blur.jpeg'
 
 
-function CardMovie({ movies }) {
+function CardMovie({ movies, genresSearch }) {
+
   return (
     <>
       {movies.map(movie => (
-        <BoxCard key={movie.id}>
-          <ImageNext src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="Poster do filme" width={176} height={264} objectFit="cover" placeholder="blur" />
-          <Title>{movie.title}</Title>
-          <Data>{movie.release_date}</Data>
-        </BoxCard>
+        genresSearch.length == 0 ?
+          <BoxCard key={movie.id}>
+            <ImageNext src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="Poster do filme" width={176} height={264} objectFit="cover" placeholder="blur" blurDataURL={blur} />
+            <Title>{movie.title}</Title>
+            <Data>{movie.release_date}</Data>
+          </BoxCard>
+          :
+          (movie.genre_ids.some(r => genresSearch.includes(r)) &&
+            <BoxCard key={movie.id}>
+              <ImageNext src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="Poster do filme" width={176} height={264} objectFit="cover" placeholder="blur" blurDataURL={blur} />
+              <Title>{movie.title}</Title>
+              <Data>{movie.release_date}</Data>
+            </BoxCard>)
       ))}
     </>
   )

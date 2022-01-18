@@ -10,12 +10,11 @@ export default function Home(props) {
 
   const [page, setPage] = useState(1)
   const [movies, setMovies] = useState([])
+  const [genresSearch, setGenresSearch] = useState([])
 
   const handlePageClick = (event) => {
     setPage(event.selected + 1);
   };
-
-
 
   useEffect(() => {
     const getMovies = async () => {
@@ -29,9 +28,9 @@ export default function Home(props) {
   return (
     <>
       <Navbar />
-      <Hero genres={props.data} />
-      <ContainerCards>
-        <CardMovie movies={movies} />
+      <Hero genres={props.data} genresSearch={genresSearch} setGenresSearch={setGenresSearch} />
+      <ContainerCards >
+        <CardMovie movies={movies} genresSearch={genresSearch} />
       </ContainerCards>
       <Paginate
         previousLabel={"anterior"}
@@ -74,7 +73,7 @@ export const Paginate = styled(ReactPaginate).attrs({
     min-width: 32px;
   }
   li.disabled a {
-    color: #2d0b61;
+    color: gray;
   }
   li.disable,
   li.disabled a {
@@ -88,9 +87,10 @@ export const ContainerCards = styled.div`
   flex-wrap: wrap;
   gap: 2rem;
   padding-top: 1.8rem;
+  padding-bottom: 80px;
 `
 
-export async function getServerSideProps({ page }) {
+export async function getServerSideProps() {
 
   const data = await api.get('/genre/movie/list').then(response => response.data.genres)
 
