@@ -1,13 +1,16 @@
 import styled from 'styled-components'
+import Link from 'next/link'
 
 function Navbar() {
   return (
     <Wrapper>
       <Content>
-        <BoxLogo>
-          <Text>TMDB</Text>
-          <Span>asd</Span>
-        </BoxLogo>
+        <Link href={`/`} passHref>
+          <BoxLogo>
+            <Text>TMDB</Text>
+            <Span>asd</Span>
+          </BoxLogo>
+        </Link>
       </Content>
     </Wrapper>
   )
@@ -29,6 +32,7 @@ const BoxLogo = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 `
 
 const Text = styled.p`

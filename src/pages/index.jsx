@@ -5,12 +5,15 @@ import CardMovie from "../components/CardMovie";
 import styled from "styled-components";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from 'react-responsive'
 
 export default function Home(props) {
 
   const [page, setPage] = useState(1)
   const [movies, setMovies] = useState([])
   const [genresSearch, setGenresSearch] = useState([])
+
+  const mobile = useMediaQuery({ query: '(max-width: 480px)' })
 
   const handlePageClick = (event) => {
     setPage(event.selected + 1);
@@ -35,12 +38,12 @@ export default function Home(props) {
           <CardMovie movies={movies} genresSearch={genresSearch} />
         </ContainerCards>
         <Paginate
-          previousLabel={"anterior"}
-          nextLabel={"próxima"}
+          previousLabel={mobile ? '<' : 'anterior'}
+          nextLabel={mobile ? '>' : 'próxima'}
           breakLabel={"..."}
           pageCount={500}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={3}
+          marginPagesDisplayed={mobile ? 1 : 2}
+          pageRangeDisplayed={mobile ? 1 : 3}
           onPageChange={handlePageClick}
         />
       </Wrapper>
@@ -86,14 +89,20 @@ export const Paginate = styled(ReactPaginate).attrs({
 export const ContainerCards = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   padding-top: 1.8rem;
   padding-bottom: 80px;
+
+  
 `
 
 const Wrapper = styled.div`
-    max-width: 1220px;
+  max-width: 1220px;
   margin: 0 auto;
+  padding: 0 50px;
+  
+  
 `
 
 export async function getServerSideProps() {

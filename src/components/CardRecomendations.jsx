@@ -29,6 +29,7 @@ const Wrapper = styled.div`
   flex: 0 0 175px;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 1rem;
 `
 const ImageNext = styled(Image)`
   border-radius: 4px;

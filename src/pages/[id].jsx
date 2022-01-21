@@ -5,11 +5,22 @@ import CardCast from "../components/CardCast"
 import styled from 'styled-components'
 import YouTube from 'react-youtube';
 import CardRecomendations from "../components/CardRecomendations"
+import { useMediaQuery } from 'react-responsive'
 
 
 
 export default function Id({ movie, cast, crew, videos, recommendations }) {
   const video = videos.map(item => item.key)
+  const mobile = useMediaQuery({ query: '(max-width: 640px)' })
+
+  const opts = {
+    height: mobile ? '180' : '360',
+    width: mobile ? '310' : '640',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
 
   return (
     <>
@@ -21,7 +32,7 @@ export default function Id({ movie, cast, crew, videos, recommendations }) {
           <CardCast cast={cast} />
         </BoxCardCast>
         <Title>Trailer</Title>
-        {!!video && <YouTube key={video[0]} videoId={video[0]} />}
+        {!!video && <YouTube opts={opts} key={video[0]} videoId={video[0]} />}
         <Title>Recomendações</Title>
         <BoxCardRecomendations>
           <CardRecomendations recommendations={recommendations} />
@@ -105,4 +116,6 @@ const Wrapper = styled.div`
     max-width: 1220px;
   margin: 0 auto;
   padding-top: 60px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 `

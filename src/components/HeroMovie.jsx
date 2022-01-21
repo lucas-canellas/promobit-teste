@@ -107,6 +107,12 @@ const Container = styled.div`
   max-width: 1220px;
   margin: 0 auto;  
   gap: 30px;
+  padding: 0 1rem;
+
+ @media(max-width: 1000px) {
+    flex-direction: column;
+    align-items: center ;
+  }
 
 `
 
