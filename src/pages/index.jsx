@@ -1,4 +1,4 @@
-import api from "../services/api";
+import api from "./api/api";
 import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
 import CardMovie from "../components/CardMovie";

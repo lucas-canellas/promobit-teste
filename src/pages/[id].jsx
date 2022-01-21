@@ -1,4 +1,4 @@
-import api from "../services/api"
+import api from "./api/api"
 import Navbar from '../components/Navbar'
 import HeroMovie from '../components/HeroMovie'
 import CardCast from "../components/CardCast"
@@ -9,7 +9,7 @@ import { useMediaQuery } from 'react-responsive'
 
 
 
-export default function Id({ movie, cast, crew, videos, recommendations }) {
+export default function Id({ movie, cast, crew, videos, recommendations, apiKey }) {
   const video = videos.map(item => item.key)
   const mobile = useMediaQuery({ query: '(max-width: 640px)' })
 
@@ -27,7 +27,7 @@ export default function Id({ movie, cast, crew, videos, recommendations }) {
       <Navbar />
       <HeroMovie movie={movie} cast={cast} crew={crew} />
       <Wrapper>
-        <Title>Elenco original</Title>
+        <Title>Elenco original{JSON.stringify(apiKey)}</Title>
         <BoxCardCast>
           <CardCast cast={cast} />
         </BoxCardCast>
@@ -58,7 +58,7 @@ export async function getServerSideProps(context) {
 
 
   return {
-    props: { movie, crew, cast, videos, recommendations },
+    props: { movie, crew, cast, videos, recommendations, apiKey: process.env.API_KEY },
   }
 }
 
