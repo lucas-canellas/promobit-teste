@@ -66,7 +66,7 @@ const BoxCardRecomendations = styled.div`
   display: flex;
     overflow-x: auto;
   gap: 32px;
-  margin-bottom: 400px;
+  margin-bottom: 2rem;
 
     ::-webkit-scrollbar-track {
     background: #DDDDDD;
