@@ -9,7 +9,7 @@ import { useMediaQuery } from 'react-responsive'
 
 
 
-export default function Id({ movie, cast, crew, videos, recommendations, apiKey }) {
+export default function Id({ movie, cast, crew, videos, recommendations }) {
   const video = videos.map(item => item.key)
   const mobile = useMediaQuery({ query: '(max-width: 640px)' })
 
@@ -27,7 +27,7 @@ export default function Id({ movie, cast, crew, videos, recommendations, apiKey 
       <Navbar />
       <HeroMovie movie={movie} cast={cast} crew={crew} />
       <Wrapper>
-        <Title>Elenco original{JSON.stringify(apiKey)}</Title>
+        <Title>Elenco original</Title>
         <BoxCardCast>
           <CardCast cast={cast} />
         </BoxCardCast>
@@ -58,7 +58,7 @@ export async function getServerSideProps(context) {
 
 
   return {
-    props: { movie, crew, cast, videos, recommendations, apiKey: process.env.API_KEY },
+    props: { movie, crew, cast, videos, recommendations },
   }
 }
 
