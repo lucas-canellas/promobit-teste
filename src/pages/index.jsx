@@ -27,20 +27,23 @@ export default function Home(props) {
 
   return (
     <>
+
       <Navbar />
       <Hero genres={props.data} genresSearch={genresSearch} setGenresSearch={setGenresSearch} />
-      <ContainerCards >
-        <CardMovie movies={movies} genresSearch={genresSearch} />
-      </ContainerCards>
-      <Paginate
-        previousLabel={"anterior"}
-        nextLabel={"próxima"}
-        breakLabel={"..."}
-        pageCount={500}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={3}
-        onPageChange={handlePageClick}
-      />
+      <Wrapper>
+        <ContainerCards >
+          <CardMovie movies={movies} genresSearch={genresSearch} />
+        </ContainerCards>
+        <Paginate
+          previousLabel={"anterior"}
+          nextLabel={"próxima"}
+          breakLabel={"..."}
+          pageCount={500}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+        />
+      </Wrapper>
     </>
   )
 }
@@ -81,13 +84,16 @@ export const Paginate = styled(ReactPaginate).attrs({
   }
 `
 export const ContainerCards = styled.div`
-  max-width: 1220px;
-  margin: 0 auto;  
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   padding-top: 1.8rem;
   padding-bottom: 80px;
+`
+
+const Wrapper = styled.div`
+    max-width: 1220px;
+  margin: 0 auto;
 `
 
 export async function getServerSideProps() {

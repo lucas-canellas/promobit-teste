@@ -40,7 +40,7 @@ function Tag({ tag, genresSearch, setGenresSearch }) {
   )
 }
 
-export const Wrapper = styled.button`
+const Wrapper = styled.button`
   /* background-color: #D18000; */
   background-color: ${props => props.bg};
   border: none;
@@ -48,20 +48,20 @@ export const Wrapper = styled.button`
   cursor: pointer;
 `
 
-export const Box = styled.div`
+const Box = styled.div`
   display: flex ;  
   gap: 10px;
   align-items: center;
   padding: 8px 16px;
 `
 
-export const Text = styled.p`
+const Text = styled.p`
   color: ${props => props.textColor};
   font-weight: 700;
   font-size: 16px;  
 `
 
-export const CloseIcon = styled(AiFillCloseCircle)`
+const CloseIcon = styled(AiFillCloseCircle)`
   color: #FFF;
 `
 

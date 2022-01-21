@@ -21,23 +21,23 @@ function Hero({ genres, genresSearch, setGenresSearch }) {
   )
 }
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   background-color: #2D0C5E;
 `
-export const Content = styled.div`
+const Content = styled.div`
   max-width: 1220px;
   margin: 0 auto;
   padding: 85px .5rem;
   text-align: center;
 `
 
-export const ContainerText = styled.div`
+const ContainerText = styled.div`
   max-width: 800px;
   margin: 0 auto;
   padding-bottom: 40px;
 `
 
-export const BoxTag = styled.div`
+const BoxTag = styled.div`
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
@@ -45,7 +45,7 @@ gap: 10px;
 padding-top: 1rem;
 `
 
-export const Text = styled.h1`
+const Text = styled.h1`
   font-weight: 700;
   font-size: 48px;
   line-height: 56px;
@@ -53,7 +53,7 @@ export const Text = styled.h1`
 
 `
 
-export const Label = styled.p`
+const Label = styled.p`
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;

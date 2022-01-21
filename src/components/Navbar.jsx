@@ -16,22 +16,22 @@ function Navbar() {
 export default Navbar
 
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   background-color: #5C16C5;
 `
-export const Content = styled.div`
+const Content = styled.div`
   max-width: 1220px;
   margin: 0 auto;
   padding: 0 .5rem;
 `
 
-export const BoxLogo = styled.div`
+const BoxLogo = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
 `
 
-export const Text = styled.p`
+const Text = styled.p`
   color: #FFF;
   font-size: 31px;
   font-weight: bold;
