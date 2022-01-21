@@ -6,6 +6,7 @@ import styled from "styled-components";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from 'react-responsive'
+import Head from 'next/head'
 
 export default function Home(props) {
 
@@ -30,6 +31,10 @@ export default function Home(props) {
 
   return (
     <>
+      <Head>
+        <title>TMDB - Desafio fontend do Promobit, retirado de github.com/felipefialho/frontend-challenges </title>
+        <meta property="og:title" content="My page title" key="title" />
+      </Head>
 
       <Navbar />
       <Hero genres={props.data} genresSearch={genresSearch} setGenresSearch={setGenresSearch} />

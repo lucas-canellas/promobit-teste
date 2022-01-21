@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import YouTube from 'react-youtube';
 import CardRecomendations from "../components/CardRecomendations"
 import { useMediaQuery } from 'react-responsive'
+import Head from 'next/head'
 
 
 
@@ -24,6 +25,11 @@ export default function Id({ movie, cast, crew, videos, recommendations }) {
 
   return (
     <>
+      <Head>
+        <title>TMDB - {movie.title}</title>
+        <meta property="og:title" content="My page title" key="title" />
+      </Head>
+
       <Navbar />
       <HeroMovie movie={movie} cast={cast} crew={crew} />
       <Wrapper>
