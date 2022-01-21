@@ -23,6 +23,7 @@ const Content = styled.div`
   max-width: 1220px;
   margin: 0 auto;
   padding: 0 .5rem;
+  cursor: pointer;
 `
 
 const Text = styled.p`
