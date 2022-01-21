@@ -78,7 +78,8 @@ export const Paginate = styled(ReactPaginate).attrs({
     border-color: transparent;
   }
   li.active a {
-    background-color: #0366d6;
+    background-color: #5C16C5;
+    border-radius: 10px;
     border-color: transparent;
     color: white;
     min-width: 32px;

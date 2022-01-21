@@ -6,10 +6,7 @@ function Navbar() {
     <Wrapper>
       <Content>
         <Link href={`/`} passHref>
-          <BoxLogo>
-            <Text>TMDB</Text>
-            <Span>asd</Span>
-          </BoxLogo>
+          <Text>TMDB</Text>
         </Link>
       </Content>
     </Wrapper>
@@ -28,17 +25,20 @@ const Content = styled.div`
   padding: 0 .5rem;
 `
 
-const BoxLogo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-`
-
 const Text = styled.p`
   color: #FFF;
   font-size: 31px;
   font-weight: bold;
+
+    &:after {
+    content: "";
+    margin-left: 10px;
+    display: inline-block;
+    width: 55px;
+    height: 22px;
+    border-radius: 20px;
+    background-color: #FFF;
+  }
 `
 
 export const Span = styled.div`
