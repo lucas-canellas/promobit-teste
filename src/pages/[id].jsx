@@ -17,10 +17,6 @@ export default function Id({ movie, cast, crew, videos, recommendations }) {
   const opts = {
     height: mobile ? '180' : '360',
     width: mobile ? '310' : '640',
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    },
   };
 
   return (

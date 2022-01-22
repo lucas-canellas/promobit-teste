@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import blur from './../../public/images/blur.jpeg'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import "react-circular-progressbar/dist/styles.css";
 import { parse } from 'fecha';
 
 function HeroMovie({ movie, cast, crew }) {
@@ -32,7 +33,8 @@ function HeroMovie({ movie, cast, crew }) {
                       pathColor: "#14FF00",
                       trailColor: "transparent",
                       strokeLinecap: 'round',
-                      textSize: "20px"
+                      textSize: "20px",
+
                     })}
                   />
                 </div>
